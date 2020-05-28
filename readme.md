@@ -1,3 +1,3 @@
-## Building a Rest Server por multiple proyects
+## Building a Rest Server for multiple proyects
 
-# Nodejs and Express is used for this example
+### Nodejs and Express is used for this example
