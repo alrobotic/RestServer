@@ -1,21 +1,26 @@
-const app = require('./routes/usuario');
+const express = require("express");
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+
+const app = express();
+
 const defaultMongoose = {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useCreateIndex: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
 };
 
-require('./config/config.js');
+require("./config/config.js");
 
+// app.use(require("./routes/usuario"));
+app.use(require("./routes/index"));
 
 mongoose.connect(process.env.URLDB, defaultMongoose, (err, resp) => {
+  if (err) {
+    throw err;
+  }
 
-    if (err) throw err;
-
-    console.log("Base de datos ONLINE");
-
-})
+  console.log("Base de datos ONLINE");
+});
 
 app.listen(port, () => console.log(`Servidor iniciado en puerto ${port}`));

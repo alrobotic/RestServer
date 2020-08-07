@@ -4,27 +4,38 @@
 
 port = process.env.PORT || 3000;
 
+//*====================================== */
+//* ==== Entorno ======== */
+//*====================================== */
 
-//*===================== */
-//* ==== Puerto ======== */
-//*===================== */
+process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+//*================================ */
+//* ==== Vencimiento Token ======== */
+//*================================ */
+//* 60 segundos
+//* 60 minutos
+//* 24 horas
+//* 30 dias
 
+process.env.VENCIMENTO_TOKEN = 60 * 60 * 24 * 30;
 
-//*===================== */
-//* ==== Puerto ======== */
-//*===================== */
+//*==================================== */
+//* ==== SEED de autenticación ======== */
+//*==================================== */
+
+process.env.SEED = process.env.SEED || "secret";
+
+//*============================ */
+//* ==== Base de datos ======== */
+//*============================ */
 
 let urlDB;
 
-if (process.env.NODE_ENV === 'dev') {
-
-    urlDB = "mongodb://localhost:27017/cafe";
-
+if (process.env.NODE_ENV === "dev") {
+  urlDB = "mongodb://localhost:27017/cafe";
 } else {
-
-    urlDB = "mongodb+srv://alrobotic:Al3j4ndr0@cluster0-4ve9y.gcp.mongodb.net/cafe?retryWrites=true&w=majority";
+  urlDB = process.env.MONGO_URI;
 }
 
 process.env.URLDB = urlDB;
