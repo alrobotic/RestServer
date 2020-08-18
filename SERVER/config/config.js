@@ -18,7 +18,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 //* 24 horas
 //* 30 dias
 
-process.env.VENCIMENTO_TOKEN = 60 * 60 * 24 * 30;
+process.env.VENCIMIENTO_TOKEN = 60 * 60 * 24 * 30;
 
 //*==================================== */
 //* ==== SEED de autenticación ======== */
@@ -39,3 +39,10 @@ if (process.env.NODE_ENV === "dev") {
 }
 
 process.env.URLDB = urlDB;
+
+//*============================ */
+//* ==== Google Sign-In ======== */
+//*============================ */
+process.env.CLIENT_ID =
+  process.env.CLIENT_ID ||
+  "1015535957815-ff54c5rel1bjcbrdf2bbeenjjmc0nm6r.apps.googleusercontent.com";
